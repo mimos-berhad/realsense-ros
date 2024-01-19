@@ -82,11 +82,13 @@ generate_messages(
     std_msgs
     )
 
+find_package(OpenCV 4.5.1 REQUIRED)
 set(CMAKE_NO_SYSTEM_FROM_IMPORTED true)
 include_directories(
     include
     ${realsense2_INCLUDE_DIR}
     ${catkin_INCLUDE_DIRS}
+    ${OpenCV_INCLUDE_DIRS}
     )
 
 # RealSense ROS Node
@@ -121,6 +123,7 @@ target_link_libraries(${PROJECT_NAME}
     ${realsense2_LIBRARY}
     ${catkin_LIBRARIES}
     ${CMAKE_THREAD_LIBS_INIT}
+    ${OpenCV_LIBRARIES}
     )
 
 if(WIN32)
